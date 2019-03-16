@@ -1,5 +1,9 @@
 # Created by Jianwei Huang
 #Generated trajectory set as .shp from GPS row .csv file
+#Input 'road_file': the city road network trajectory belongs to remove outlier points. %Shapefile
+#Input 'Taxi_pointset': the GPS trajectory points dataset which have been sorted by car id and time.
+#output New_shp_file: the GPS trajectory polyline set as output.
+#output New_csv_file: the new GPS trajectory points dataset which related to GPS trajectory polyline.
 
 import gdal
 import ogr,osr
@@ -112,10 +116,10 @@ def PointClear(txt_file,Taxi_pointset,minX,maxX,minY,maxY,new_layer):
 
 if __name__ == '__main__':
 
-    road_file=r'E:\jwhuang\Map match\Dataset\WH_DATA\WH_MMP_split\New Shape\Wuhan_edges.shp'
-    Taxi_pointset=r'E:\jwhuang\Map match\Dataset\WH_DATA\20140509.csv'
-    New_shp_file=r'E:\jwhuang\Road Usage\Dataset\WuhanTraj_all\20140509Trajectory.shp'
-    New_csv_file=r'E:\jwhuang\Road Usage\Dataset\Wuhan_TaxiPoints\20140509_all.csv'
+    road_file=r''
+    Taxi_pointset=r''
+    New_shp_file=r''
+    New_csv_file=r''
     txt_file=open(New_csv_file,'w')
     driver=ogr.GetDriverByName('ESRI Shapefile')
     data_source=driver.CreateDataSource(New_shp_file)
